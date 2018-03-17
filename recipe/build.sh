@@ -2,11 +2,11 @@
 
 build_linux()
 {
-    make hyperkube kubefed
+    make hyperkube kubefed cloud-controller-manager
 
     make test WHAT=./federation/pkg/kubefed
 
-    mv _output/bin/{hyperkube,kubefed} $PREFIX/bin
+    mv _output/bin/{hyperkube,kubefed,cloud-controller-manager} $PREFIX/bin
     pushd $PREFIX/bin
     ./hyperkube  --make-symlinks
 

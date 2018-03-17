@@ -31,16 +31,31 @@ requirements:
 
 test:
   commands:
+    - cloud-controller-manager --help  # [not osx]
+    - federation-apiserver --help  # [linux]
+    - federation-controller-manager --help  # [linux]
+    - hyperkube --version  # [linux]
+    - kube-aggregator --help  # [linux]
+    - kube-apiserver --help  # [linux]
+    - kube-controller-manager --help  # [linux]
+    - kube-proxy --help  # [not osx]
+    - kubectl --help
+    - kubefed --help
+    - kubelet --help  # [not osx]
+
+    # Missing?
+    #- apiextensions-apiserver
+    #- kubemark
+
+    # wont-fix
+    # - kubeadm
+
+    # ugly hack because cloud-controller-manager is not a dynamic executable
+    - mv $PREFIX/bin/cloud-controller-manager .  # [linux]
     - conda inspect linkages -p $PREFIX {{ name|lower }}  # [not win]
     - conda inspect objects -p $PREFIX {{ name|lower }}  # [osx]
+    - mv cloud-controller-manager $PREFIX  # [linux]
 
-    - kubectl help
-    - kubefed help
-
-    - kube-proxy help  # [not osx]
-    - kubelet help  # [not osx]
-
-    - hyperkube help  # [linux]
 about:
   home: https://www.kubernetes.io
   license: Apache-2.0
