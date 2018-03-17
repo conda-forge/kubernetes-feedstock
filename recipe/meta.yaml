@@ -13,7 +13,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  skip: True  # [not linux]
+  skip: True  # [win]
   number: 0
 
 requirements:
@@ -25,7 +25,12 @@ requirements:
 
 test:
   commands:
-    - hyperkube --version
+    - conda inspect linkages -p $PREFIX {{ name|lower }}  # [not win]
+    - conda inspect objects -p $PREFIX {{ name|lower }}  # [osx]
+
+    - hyperkube --version  # [linux]
+    - kubectl --version
+    - kubefed --version
 
 about:
   home: https://www.kubernetes.io

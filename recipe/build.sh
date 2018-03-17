@@ -1,12 +1,30 @@
 #!/usr/bin/env bash
 
-set +x 
+build_linux()
+{
+    make -j $CPU_COUNT hyperkube
+    mv _output/bin/hyperkube $PREFIX/bin
 
-# Create temporary GOPATH
-make hyperkube
-mv _output/bin/hyperkube $PREFIX/bin
+    cd $PREFIX/bin
+    ./hyperkube  --make-symlinks
+}
 
-cd $PREFIX/bin
-./hyperkube  --make-symlinks
+build_osx()
+{
+    make -j $CPU_COUNT kubectl kubefed
 
-conda inspect linkages --untracked -p $PREFIX
+    make test WHAT=./pkg/kubectl
+    make test WHAT=./federation/pkg/kubefed
+
+    mv _output/bin/kubectl $PREFIX/bin
+    mv _output/bin/kubefed $PREFIX/bin
+}
+
+case $(uname -s) in
+    "Linux")
+        build_linux
+        ;;
+    "Darwin")
+        build_osx
+        ;;
+esac
