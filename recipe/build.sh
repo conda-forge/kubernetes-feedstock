@@ -2,22 +2,30 @@
 
 build_linux()
 {
-    make -j $CPU_COUNT hyperkube
-    mv _output/bin/hyperkube $PREFIX/bin
+    make hyperkube kubefed
 
-    cd $PREFIX/bin
+    make test WHAT=./federation/pkg/kubefed
+
+    mv _output/bin/{hyperkube,kubefed} $PREFIX/bin
+    pushd $PREFIX/bin
     ./hyperkube  --make-symlinks
+
+    # Make the binary names conform to the ones upstream
+    for i in aggregator apiserver controller-manager proxy scheduler ; do
+        mv $i kube-$i
+    done
+
+    popd
 }
 
 build_osx()
 {
-    make -j $CPU_COUNT kubectl kubefed
+    make kubectl kubefed
 
     make test WHAT=./pkg/kubectl
     make test WHAT=./federation/pkg/kubefed
 
-    mv _output/bin/kubectl $PREFIX/bin
-    mv _output/bin/kubefed $PREFIX/bin
+    mv _output/bin/{kubectl,kubefed} $PREFIX/bin
 }
 
 case $(uname -s) in

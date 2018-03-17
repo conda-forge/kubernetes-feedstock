@@ -2,19 +2,25 @@
 {% set version = "1.7.14"%}
 
 {% set sha256 = "1f3c05e60882f014236a1c93fac05afde49b0fcb67aabb4df0a11b96b5aa5d24" %}
+{% set sha256_win64 = "7f36a84bf7563d762046cda5fd801614fecd12a4724a9e9002011346b1b7130d" %}
+
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/kubernetes/{{ name }}/archive/v{{ version }}.tar.gz
-  fn: {{ name }}-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  url: https://github.com/kubernetes/{{ name }}/archive/v{{ version }}.tar.gz  # [not win]
+  url: https://dl.k8s.io/v{{ version }}/{{ name }}-node-windows-amd64.tar.gz  # [win]
+  fn: {{ name }}-{{ version }}.tar.gz  # [not win]
+  sha256: {{ sha256 }}  # [not win]
+
+  fn: {{ name }}-client-{{ version }}.tar.gz  # [win]
+  sha256: {{ sha256_win64 }}  # [win]
 
 build:
-  skip: True  # [win]
-  number: 0
+  skip: True  # [win32]
+  number: 1
 
 requirements:
   build:
@@ -28,15 +34,19 @@ test:
     - conda inspect linkages -p $PREFIX {{ name|lower }}  # [not win]
     - conda inspect objects -p $PREFIX {{ name|lower }}  # [osx]
 
-    - hyperkube --version  # [linux]
-    - kubectl --version
-    - kubefed --version
+    - kubectl help
+    - kubefed help
 
+    - kube-proxy help  # [not osx]
+    - kubelet help  # [not osx]
+
+    - hyperkube help  # [linux]
 about:
   home: https://www.kubernetes.io
   license: Apache-2.0
   license_family: Apache
-  license_file: LICENSE
+  license_file: LICENSE  # [not win]
+  license_file: LICENSES  # [win]
   summary: Production-Grade Container Orchestration
   doc_url: https://v1-7.docs.kubernetes.io/docs/home/
   dev_url: https://github.com/kubernetes/kubernetes
