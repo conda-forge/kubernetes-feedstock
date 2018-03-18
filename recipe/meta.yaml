@@ -27,7 +27,7 @@ requirements:
     - go 1.8.*  # [not win]
     - rsync  # [not win]
     - make  # [not win]
-    - toolchain  #[not win]
+    - toolchain  # [not win]
 
 test:
   commands:
