@@ -24,10 +24,10 @@ build:
 
 requirements:
   build:
-    - go 1.8.*
-    - rsync
-    - make
-    - toolchain
+    - go 1.8.*  # [not win]
+    - rsync  # [not win]
+    - make  # [not win]
+    - toolchain  #[not win]
 
 test:
   commands:
