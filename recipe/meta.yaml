@@ -41,7 +41,7 @@ test:
     - kube-proxy --help  # [not osx]
     - kubectl --help
     - kubefed --help
-    - kubelet --help  # [not osx]
+    - kubelet --help  # [linux]
 
     # Missing?
     #- apiextensions-apiserver
