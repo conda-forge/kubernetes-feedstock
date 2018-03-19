@@ -19,7 +19,7 @@ source:
   sha256: {{ sha256_win64 }}  # [win]
 
 build:
-  skip: True  # [win]
+  skip: True  # [win32]
   number: 1
 
 requirements:
