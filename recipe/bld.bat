@@ -1,1 +1,1 @@
-XCOPY node\*.exe %LIBRARY_BIN%
+XCOPY node\bin\*.exe %LIBRARY_BIN%
