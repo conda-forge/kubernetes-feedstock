@@ -2,7 +2,7 @@
 {% set version = "1.9.6" %}
 
 {% set sha256 = "d0c0edba4410426bf9b7b8f9f0efd0d59816cdeaef25fc99311a90ece843c1d3" %}
-{% set sha256_win64 = "7f36a84bf7563d762046cda5fd801614fecd12a4724a9e9002011346b1b7130d" %}
+{% set sha256_win64 = "a9529c35e258ddf0da7e585bb7106f2635178b07691763dde483c47f579754a9" %}
 
 
 package:
@@ -42,14 +42,7 @@ test:
     - kubectl --help
     - kubefed --help
     - kubelet --help  # [linux]
-
-    # Missing?
-    #- apiextensions-apiserver
-    #- kubemark
-
-    # wont-fix
-    # - kubeadm
-
+    
     # ugly hack because cloud-controller-manager is not a dynamic executable
     - mv $PREFIX/bin/cloud-controller-manager .  # [linux]
     - conda inspect linkages -p $PREFIX {{ name|lower }}  # [not win]
