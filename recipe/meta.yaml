@@ -1,8 +1,8 @@
 {% set name = "kubernetes" %}
-{% set version = "1.7.14" %}
+{% set version = "1.8.10" %}
 
-{% set sha256 = "1f3c05e60882f014236a1c93fac05afde49b0fcb67aabb4df0a11b96b5aa5d24" %}
-{% set sha256_win64 = "7f36a84bf7563d762046cda5fd801614fecd12a4724a9e9002011346b1b7130d" %}
+{% set sha256 = "07183ddf681345adc4e356bff22b39cdf0545738f5e9e981665f9aecae302bc8" %}
+{% set sha256_win64 = "bdaaf628a38f9cf2134af302b941beb51d0f0f94431131e1c92c532e98a03098" %}
 
 
 package:
@@ -20,7 +20,7 @@ source:
 
 build:
   skip: True  # [win32]
-  number: 1
+  number: 0
 
 requirements:
   build:
