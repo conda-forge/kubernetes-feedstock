@@ -32,8 +32,6 @@ requirements:
 test:
   commands:
     - cloud-controller-manager --version  # [linux]
-    - federation-apiserver --help  # [linux]
-    - federation-controller-manager --help  # [linux]
     - hyperkube --version  # [linux]
     - kube-aggregator --help  # [linux]
     - kube-apiserver --help  # [linux]
