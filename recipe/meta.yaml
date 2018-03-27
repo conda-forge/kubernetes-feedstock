@@ -40,7 +40,6 @@ test:
     - kube-controller-manager --help  # [linux]
     - kube-proxy --help  # [not osx]
     - kubectl --help
-    - kubefed --help
     - kubelet --help  # [linux]
     
     # ugly hack because cloud-controller-manager is not a dynamic executable
