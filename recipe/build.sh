@@ -27,7 +27,7 @@ build_osx()
 
     make test WHAT=./pkg/kubectl
 
-    mv _output/bin/{kubectl,kubefed} $PREFIX/bin
+    mv _output/bin/kubectl $PREFIX/bin
 }
 
 make_goroot_read_only
