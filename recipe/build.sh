@@ -23,10 +23,9 @@ build_linux()
 
 build_osx()
 {
-    make kubectl kubefed
+    make kubectl
 
     make test WHAT=./pkg/kubectl
-    make test WHAT=./federation/pkg/kubefed
 
     mv _output/bin/{kubectl,kubefed} $PREFIX/bin
 }
