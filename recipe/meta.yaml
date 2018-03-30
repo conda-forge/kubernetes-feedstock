@@ -43,13 +43,6 @@ test:
     - kubefed --help
     - kubelet --help  # [linux]
 
-    # Missing?
-    #- apiextensions-apiserver
-    #- kubemark
-
-    # wont-fix
-    # - kubeadm
-
     # ugly hack because cloud-controller-manager is not a dynamic executable
     - mv $PREFIX/bin/cloud-controller-manager .  # [linux]
     - conda inspect linkages -p $PREFIX {{ name|lower }}  # [not win]
@@ -63,7 +56,7 @@ about:
   license_file: LICENSE  # [not win]
   license_file: LICENSES  # [win]
   summary: Production-Grade Container Orchestration
-  doc_url: https://v1-7.docs.kubernetes.io/docs/home/
+  doc_url: https://v1-8.docs.kubernetes.io/docs/home/
   dev_url: https://github.com/kubernetes/kubernetes
 
 extra:
