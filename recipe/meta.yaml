@@ -1,8 +1,8 @@
 {% set name = "kubernetes" %}
-{% set version = "1.8.10" %}
+{% set version = "1.9.6" %}
 
-{% set sha256 = "07183ddf681345adc4e356bff22b39cdf0545738f5e9e981665f9aecae302bc8" %}
-{% set sha256_win64 = "bdaaf628a38f9cf2134af302b941beb51d0f0f94431131e1c92c532e98a03098" %}
+{% set sha256 = "d0c0edba4410426bf9b7b8f9f0efd0d59816cdeaef25fc99311a90ece843c1d3" %}
+{% set sha256_win64 = "a9529c35e258ddf0da7e585bb7106f2635178b07691763dde483c47f579754a9" %}
 
 
 package:
@@ -24,7 +24,7 @@ build:
 
 requirements:
   build:
-    - go 1.8.*  # [not win]
+    - go 1.9.*  # [not win]
     - rsync  # [not win]
     - make  # [not win]
     - toolchain  # [not win]
@@ -32,24 +32,14 @@ requirements:
 test:
   commands:
     - cloud-controller-manager --version  # [linux]
-    - federation-apiserver --help  # [linux]
-    - federation-controller-manager --help  # [linux]
     - hyperkube --version  # [linux]
     - kube-aggregator --help  # [linux]
     - kube-apiserver --help  # [linux]
     - kube-controller-manager --help  # [linux]
     - kube-proxy --help  # [not osx]
     - kubectl --help
-    - kubefed --help
     - kubelet --help  # [linux]
-
-    # Missing?
-    #- apiextensions-apiserver
-    #- kubemark
-
-    # wont-fix
-    # - kubeadm
-
+    
     # ugly hack because cloud-controller-manager is not a dynamic executable
     - mv $PREFIX/bin/cloud-controller-manager .  # [linux]
     - conda inspect linkages -p $PREFIX {{ name|lower }}  # [not win]
