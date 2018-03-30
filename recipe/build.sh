@@ -7,11 +7,9 @@ make_goroot_read_only()
 
 build_linux()
 {
-    make hyperkube kubefed cloud-controller-manager
+    make hyperkube cloud-controller-manager
 
-    make test WHAT=./federation/pkg/kubefed
-
-    mv _output/bin/{hyperkube,kubefed,cloud-controller-manager} $PREFIX/bin
+    mv _output/bin/{hyperkube,cloud-controller-manager} $PREFIX/bin
     pushd $PREFIX/bin
     ./hyperkube  --make-symlinks
 
@@ -25,12 +23,11 @@ build_linux()
 
 build_osx()
 {
-    make kubectl kubefed
+    make kubectl
 
     make test WHAT=./pkg/kubectl
-    make test WHAT=./federation/pkg/kubefed
 
-    mv _output/bin/{kubectl,kubefed} $PREFIX/bin
+    mv _output/bin/kubectl $PREFIX/bin
 }
 
 make_goroot_read_only

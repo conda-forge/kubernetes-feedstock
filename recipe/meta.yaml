@@ -24,7 +24,7 @@ build:
 
 requirements:
   build:
-    - go 1.8.*  # [not win]
+    - go 1.9.*  # [not win]
     - rsync  # [not win]
     - make  # [not win]
     - toolchain  # [not win]
@@ -32,24 +32,14 @@ requirements:
 test:
   commands:
     - cloud-controller-manager --version  # [linux]
-    - federation-apiserver --help  # [linux]
-    - federation-controller-manager --help  # [linux]
     - hyperkube --version  # [linux]
     - kube-aggregator --help  # [linux]
     - kube-apiserver --help  # [linux]
     - kube-controller-manager --help  # [linux]
     - kube-proxy --help  # [not osx]
     - kubectl --help
-    - kubefed --help
     - kubelet --help  # [linux]
-
-    # Missing?
-    #- apiextensions-apiserver
-    #- kubemark
-
-    # wont-fix
-    # - kubeadm
-
+    
     # ugly hack because cloud-controller-manager is not a dynamic executable
     - mv $PREFIX/bin/cloud-controller-manager .  # [linux]
     - conda inspect linkages -p $PREFIX {{ name|lower }}  # [not win]
