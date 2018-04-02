@@ -32,19 +32,15 @@ requirements:
 test:
   commands:
     - cloud-controller-manager --version  # [linux]
-    - hyperkube --version  # [linux]
-    - kube-aggregator --help  # [linux]
+    - hyperkube help  # [linux]
     - kube-apiserver --help  # [linux]
     - kube-controller-manager --help  # [linux]
     - kube-proxy --help  # [not osx]
     - kubectl --help
     - kubelet --help  # [linux]
     
-    # ugly hack because cloud-controller-manager is not a dynamic executable
-    - mv $PREFIX/bin/cloud-controller-manager .  # [linux]
     - conda inspect linkages -p $PREFIX {{ name|lower }}  # [not win]
     - conda inspect objects -p $PREFIX {{ name|lower }}  # [osx]
-    - mv cloud-controller-manager $PREFIX  # [linux]
 
 about:
   home: https://www.kubernetes.io
