@@ -2,7 +2,7 @@
 {% set version = "1.10.0" %}
 
 {% set sha256 = "d547dd66ce90fdf04fccc655ff02cc0c63ab1ce13f7e5ac136f77122ff2b22db" %}
-{% set sha256_win64 = "bdaaf628a38f9cf2134af302b941beb51d0f0f94431131e1c92c532e98a03098" %}
+{% set sha256_win64 = "eac14e3420ca9769e067cbf929b5383cd77d56e460880a30c0df1bbfbb5a43db" %}
 
 
 package:
@@ -37,7 +37,7 @@ test:
     - kube-controller-manager --help  # [linux]
     - kube-proxy --help  # [not osx]
     - kubectl --help
-    - kubelet --help  # [linux]
+    - kubelet --help  # [not osx]
     
     - conda inspect linkages -p $PREFIX {{ name|lower }}  # [not win]
     - conda inspect objects -p $PREFIX {{ name|lower }}  # [osx]
@@ -49,7 +49,7 @@ about:
   license_file: LICENSE  # [not win]
   license_file: LICENSES  # [win]
   summary: Production-Grade Container Orchestration
-  doc_url: https://v1-7.docs.kubernetes.io/docs/home/
+  doc_url: https://docs.kubernetes.io
   dev_url: https://github.com/kubernetes/kubernetes
 
 extra:
