@@ -7,16 +7,11 @@ make_goroot_read_only()
 
 build_linux()
 {
-    make hyperkube cloud-controller-manager
+    make hyperkube
 
-    mv _output/bin/{hyperkube,cloud-controller-manager} $PREFIX/bin
+    mv _output/bin/hyperkube $PREFIX/bin
     pushd $PREFIX/bin
     ./hyperkube  --make-symlinks
-
-    # Make the binary names conform to the ones upstream
-    for i in aggregator apiserver controller-manager proxy scheduler ; do
-        mv $i kube-$i
-    done
 
     popd
 }
