@@ -1,7 +1,7 @@
 {% set name = "kubernetes" %}
 {% set version = "1.7.16" %}
 
-{% set sha256 = "428377630d711419e4c629b52899b44dd6f57d450b52b3d47c2304ccd24fa711" %}
+{% set sha256 = "5e463df98dc2c41b5dd70df30a7aa067bcff65f210c2bbc43ac7ff83e5ba8ce1" %}
 {% set sha256_win64 = "e6a0d39b6efeef76ed69bc5a2ae1dc919b95b9424f2d527aa37a6a7ecc77197e" %}
 
 
