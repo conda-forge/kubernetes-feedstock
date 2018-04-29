@@ -1,8 +1,8 @@
 {% set name = "kubernetes" %}
 {% set version = "1.8.12" %}
 
-{% set sha256 = "x" %}
-{% set sha256_win64 = "x" %}
+{% set sha256 = "74ec1ae74bf19f111f460df65960efcc9bc6c1b1372f299a5d8dc89638a95af6" %}
+{% set sha256_win64 = "6ef9db947227b9d0fef949f9036043ea416ba44224aca4618b3e0d21386ca438" %}
 
 
 package:
