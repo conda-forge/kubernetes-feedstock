@@ -20,10 +20,10 @@ build:
 
 requirements:
   build:
-    - go >=1.10.2  # [not win]
+    - {{ compiler('c') }}
+    - go >=1.10.2,<1.11  # [not win]
     - rsync  # [not win]
     - make  # [not win]
-    - toolchain  # [not win]
 
 test:
   commands:
