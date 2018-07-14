@@ -16,14 +16,13 @@ source:
 
 build:
   skip: True  # [win32]
-  number: 0
+  number: 1
 
 requirements:
   build:
+    - make  # [not win]
     - go 1.9.*  # [not win]
     - rsync  # [not win]
-    - make  # [not win]
-    - toolchain  # [not win]
 
 test:
   commands:
@@ -34,7 +33,7 @@ test:
     - kube-proxy --help  # [not osx]
     - kubectl --help
     - kubelet --help  # [not osx]
-    
+
     - conda inspect linkages -p $PREFIX {{ name|lower }}  # [not win]
     - conda inspect objects -p $PREFIX {{ name|lower }}  # [osx]
 
