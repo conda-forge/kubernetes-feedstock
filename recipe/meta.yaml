@@ -16,7 +16,7 @@ source:
 
 build:
   skip: True  # [win32]
-  number: 0
+  number: 2
 
 requirements:
   build:
@@ -34,7 +34,7 @@ test:
     - kube-proxy --help  # [not osx]
     - kubectl --help
     - kubelet --help  # [not osx]
-    
+
     - conda inspect linkages -p $PREFIX {{ name|lower }}  # [not win]
     - conda inspect objects -p $PREFIX {{ name|lower }}  # [osx]
 
