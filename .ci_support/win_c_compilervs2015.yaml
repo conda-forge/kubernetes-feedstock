@@ -1,2 +1,4 @@
 c_compiler:
 - vs2015
+go_compiler:
+- go
