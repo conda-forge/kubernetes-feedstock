@@ -1,6 +1,0 @@
-c_compiler:
-- toolchain_c
-go_compiler:
-- go
-target_platform:
-- osx-64

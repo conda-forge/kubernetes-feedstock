@@ -2,5 +2,3 @@ c_compiler:
 - toolchain_c
 go_compiler:
 - go
-target_platform:
-- linux-64
