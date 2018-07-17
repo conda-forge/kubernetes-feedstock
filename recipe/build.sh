@@ -1,10 +1,5 @@
 #!/usr/bin/env bash
 
-make_goroot_read_only()
-{
-    find $PREFIX/go -type d -exec chmod 555 {} \;
-}
-
 build_linux()
 {
     make hyperkube
@@ -24,8 +19,6 @@ build_osx()
 
     mv _output/bin/kubectl $PREFIX/bin
 }
-
-make_goroot_read_only
 
 case $(uname -s) in
     "Linux")
