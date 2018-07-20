@@ -20,6 +20,7 @@ build_osx()
     mv _output/bin/kubectl $PREFIX/bin
 }
 
+mkdir -p $PREFIX/bin
 case $(uname -s) in
     "Linux")
         build_linux
