@@ -1,7 +1,5 @@
 MACOSX_DEPLOYMENT_TARGET:
 - '10.9'
-c_compiler:
-- toolchain_c
 go_compiler:
 - go
 macos_machine:
