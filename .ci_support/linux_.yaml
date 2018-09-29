@@ -5,6 +5,11 @@ channel_sources:
 channel_targets:
 - conda-forge main
 docker_image:
-- condaforge/linux-anvil
+- conda/c3i-linux-64
 go_compiler:
 - go
+zip_keys:
+- - channel_sources
+  - channel_targets
+  - docker_image
+  - build_number_decrement
