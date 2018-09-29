@@ -21,6 +21,8 @@ build:
 requirements:
   build:
     - {{ compiler('go') }}  # [not win]
+    - {{ compiler('c') }}  # [not win]
+    - {{ compiler('cxx') }}  # [not win]
     - make  # [not win]
     - rsync  # [not win]
 
