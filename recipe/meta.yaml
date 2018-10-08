@@ -16,11 +16,12 @@ source:
 
 build:
   skip: True  # [win32]
-  number: 0
+  number: 1000
 
 requirements:
   build:
     - {{ compiler('go') }}  # [not win]
+    - {{ compiler('c') }}  # [not win]
     - make  # [not win]
     - rsync  # [not win]
 
