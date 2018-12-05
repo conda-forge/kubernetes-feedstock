@@ -20,7 +20,7 @@ build:
 
 requirements:
   build:
-    - {{ compiler('go') }}  # [not win]
+    - {{ compiler('go') }} 1.11  # [not win]
     - {{ compiler('c') }}  # [not win]
     - make  # [not win]
     - rsync  # [not win]
