@@ -42,7 +42,7 @@ about:
   license: Apache-2.0
   license_family: Apache
   license_file: k8s.io/kubernetes/LICENSE  # [not win]
-  license_file: k8s.io/kubernetes/LICENSES  # [win]
+  license_file: LICENSES  # [win]
   summary: Production-Grade Container Orchestration
   doc_url: https://docs.kubernetes.io
   dev_url: https://github.com/kubernetes/kubernetes
