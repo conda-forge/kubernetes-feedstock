@@ -1,2 +1,3 @@
 go_compiler:
-  - go-nocgo
+  - go-nocgo [not osx]
+  - go-cgo  [osx]
