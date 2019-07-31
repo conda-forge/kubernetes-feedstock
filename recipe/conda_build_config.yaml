@@ -1,2 +1,2 @@
 go_compiler:
-  - go-cgo
+  - go-nocgo
