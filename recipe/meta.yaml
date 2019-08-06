@@ -12,7 +12,6 @@ source:
 
     url: https://dl.k8s.io/v{{ version }}/{{ name }}-node-windows-amd64.tar.gz  # [win]
     sha256: 1dbcbbd64ad73c4135b62efb364e49caebcdbf0b97ccd944f95285d57a346d77  # [win]
-
 build:
   skip: True  # [win32]
   number: 0
