@@ -14,7 +14,6 @@ source:
     sha256: 41f26f66269cea63eeb6fff15da169ac25ed862268a2ba214c1ccd9054df4858  # [win]
 
 build:
-  skip: True  # [win32]
   number: 0
 
 requirements:
