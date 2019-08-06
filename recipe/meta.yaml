@@ -1,5 +1,5 @@
 {% set name = "kubernetes" %}
-{% set version = "1.14.0" %}
+{% set version = "1.14.1" %}
 
 package:
   name: {{ name|lower }}
@@ -8,10 +8,10 @@ package:
 source:
   - folder: k8s.io/kubernetes  # [not win]
     url: https://github.com/kubernetes/{{ name }}/archive/v{{ version }}.tar.gz  # [not win]
-    sha256: 30049fbdcd1bedd6c139ddc842ff593fff9b0f52c4fd8dc8e82ec6185d684b52  # [not win]
+    sha256: 667eaf9d529bad9359acd129e84cbecfeff0b573ab3e601a0df4e3c7aab33658  # [not win]
 
     url: https://dl.k8s.io/v{{ version }}/{{ name }}-node-windows-amd64.tar.gz  # [win]
-    sha256: a0c495d7d018a237b72da989991b62c346fe8d52d13f8f720ccf62e457d4544e  # [win]
+    sha256: 0f180b092d69e0780fbd9e8c15ec5c9ae0000c083b692a3fded1cd14f865d441  # [win]
 
 build:
   skip: True  # [win32]
