@@ -9,4 +9,4 @@ channel_targets:
 docker_image:
 - condaforge/linux-anvil-comp7
 go_compiler:
-- go-cgo
+- go-nocgo
