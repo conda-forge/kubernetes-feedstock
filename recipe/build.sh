@@ -18,7 +18,11 @@ build_linux()
 
     mv _output/bin/hyperkube $PREFIX/bin
     pushd $PREFIX/bin
-    ./hyperkube  --make-symlinks
+
+    exes=(kube-apiserver kube-controller-manager kube-proxy kube-scheduler kubectl kubelet)
+    for exe in ${exes[@]}; do
+        ln -s ./hyperkube $exe
+    done
 
     popd
 }
