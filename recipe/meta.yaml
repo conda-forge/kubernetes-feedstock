@@ -25,16 +25,13 @@ requirements:
 
 test:
   commands:
-    - cloud-controller-manager --version  # [linux]
     - hyperkube help  # [linux]
     - kube-apiserver --help  # [linux]
     - kube-controller-manager --help  # [linux]
     - kube-proxy --help  # [not osx]
+    - kube-scheduler --help  # [linux]
     - kubectl --help
     - kubelet --help  # [not osx]
-
-    - conda inspect linkages -p $PREFIX {{ name|lower }}  # [not win]
-    - conda inspect objects -p $PREFIX {{ name|lower }}  # [osx]
 
 about:
   home: https://www.kubernetes.io
