@@ -1,0 +1,14 @@
+diff --git a/hack/lib/golang.sh b/hack/lib/golang.sh
+index 3c4c65e..7710f7b 100755
+--- a/hack/lib/golang.sh
++++ b/hack/lib/golang.sh
+@@ -518,6 +518,9 @@ kube::golang::setup_env() {
+   GOROOT=$(go env GOROOT)
+   export GOROOT
+ 
++  # Unset CONDA_GO_COMPILER so GOBIN and GOPATH are unmodified
++  unset CONDA_GO_COMPILER
++
+   # Unset GOBIN in case it already exists in the current session.
+   unset GOBIN
+ 
