@@ -38,7 +38,8 @@ test:
 
 outputs:
   - name: {{ name }}-client
-    script: client/build.sh
+    script: client/build.sh  # [unix]
+    script: client/bld.bat  # [win]
     test:
       script: client/test.sh
     requirements:
@@ -54,7 +55,8 @@ outputs:
       summary: Kubernetes client binaries
 
   - name: {{ name }}-node
-    script: node/build.sh
+    script: node/build.sh  # [unix]
+    script: node/bld.bat  # [win]
     test:
       script: node/test.sh
     requirements:
@@ -69,6 +71,7 @@ outputs:
       license_file: LICENSE
       summary: Kubernetes node binaries
 
+  {% if not win %}
   - name: {{ name }}-server
     script: server/build.sh
     test:
@@ -86,6 +89,7 @@ outputs:
         license: Apache-2.0
         license_file: LICENSE
         summary: Kubernetes server binaries
+  {% endif %}
 
 about:
   home: https://www.kubernetes.io
