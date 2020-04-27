@@ -8,12 +8,9 @@ mkdir -p "$PREFIX"/bin
 export GO_TMPDIR=$SRC_DIR/tmp
 go env
 
-targets="${KUBE_NODE_TARGETS[*]}"
+make all WHAT="${KUBE_NODE_TARGETS[*]}"
 
-make all WHAT="${targets}"
-
-binaries="${KUBE_NODE_BINARIES[*]}"
-for cmd in ${binaries}; do
-  cp _output/bin/"${cmd}" "$PREFIX"/bin
-  readelf -d "$PREFIX"/bin/"${cmd}"
+for cmd in ${KUBE_NODE_BINARIES[*]}; do
+  cp "_output/bin/${cmd}" "$PREFIX/bin"
+  readelf -d "$PREFIX/bin/${cmd}"
 done
