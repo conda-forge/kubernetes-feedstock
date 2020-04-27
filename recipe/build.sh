@@ -14,7 +14,7 @@ build_linux()
       kubeadm
       kubectl
     )
-    make -j${CPU_COUNT} GCFLAGS="-v" ${cmds[@]}
+    make GCFLAGS="-v" ${cmds[@]}
 
     for cmd in ${cmds[@]}; do
         mv _output/bin/${cmd} $PREFIX/bin
