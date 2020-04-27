@@ -12,7 +12,6 @@ make all WHAT="${KUBE_SERVER_TARGETS[*]}"
 
 for cmd in ${KUBE_SERVER_BINARIES[*]}; do
   cp "_output/bin/${cmd}" "$PREFIX/bin"
-  readelf -d "$PREFIX/bin/${cmd}"
 done
 
 #

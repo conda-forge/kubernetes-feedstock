@@ -26,7 +26,7 @@ requirements:
 
 test:
   commands:
-    - test -x $PREFIX/bin/kubectl
+    - kubectl
 
     - kubelet --help  # [linux or win]
     - kube-proxy --help  # [linux or win]
@@ -35,8 +35,6 @@ test:
     - kube-apiserver --help  # [linux]
     - kube-controller-manager --help  # [linux]
     - kube-scheduler --help  # [linux]
-    - apiextensions-apiserver  --help # [linux]
-    - cloud-controller-manager  --help # [linux]
 
 outputs:
   - name: {{ name }}-client
