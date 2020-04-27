@@ -6,7 +6,6 @@ package:
   version: {{ version }}
 
 source:
-<<<<<<< HEAD
   url: https://github.com/kubernetes/{{ name }}/archive/v{{ version }}.tar.gz  # [not win]
   sha256: 90a9e05995e55bf1ca4febf3801a2db177e4f5eb57663a00459619fce3b71676  # [not win]
   patches:  # [not win]
@@ -20,7 +19,7 @@ build:
 
 requirements:
   build:
-    - {{ compiler('cgo') }} 1.12.17  # [not win]
+    - {{ compiler('cgo') }} 1.13  # [not win]
     - {{ compiler('c') }}  # [not win]
     - make  # [not win]
     - rsync  # [not win]
