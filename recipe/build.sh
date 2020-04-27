@@ -4,17 +4,21 @@ build_linux()
 {
     go env
 
-    make all WHAT=cmd/hyperkube GCFLAGS="-v"
+    cmds=(
+      cloud-controller-manager
+      kube-apiserver
+      kube-controller-manager
+      kube-proxy
+      kube-scheduler
+      kubelet
+      kubeadm
+      kubectl
+    )
+    make -j${CPU_COUNT} GCFLAGS="-v" ${cmds[@]}
 
-    mv _output/bin/hyperkube $PREFIX/bin
-    pushd $PREFIX/bin
-
-    exes=(kube-apiserver kube-controller-manager kube-proxy kube-scheduler kubectl kubelet)
-    for exe in ${exes[@]}; do
-        ln -s ./hyperkube $exe
+    for cmd in ${cmds[@]}; do
+        mv _output/bin/${cmd} $PREFIX/bin
     done
-
-    popd
 }
 
 build_osx()

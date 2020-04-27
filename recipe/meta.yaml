@@ -23,16 +23,18 @@ requirements:
     - {{ compiler('c') }}  # [not win]
     - make  # [not win]
     - rsync  # [not win]
+    - jq  # [not win]
 
 test:
   commands:
-    - hyperkube help  # [linux]
+    - cloud-controller-manager  # [linux]
     - kube-apiserver --help  # [linux]
     - kube-controller-manager --help  # [linux]
     - kube-proxy --help  # [not osx]
     - kube-scheduler --help  # [linux]
-    - kubectl --help
     - kubelet --help  # [not osx]
+    - kubeadm --help
+    - kubectl --help
 
 about:
   home: https://www.kubernetes.io
