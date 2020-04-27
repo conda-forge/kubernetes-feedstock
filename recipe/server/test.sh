@@ -12,6 +12,7 @@ kube-scheduler --help
 
 test -x "${PREFIX}"/bin/mounter
 
-test -x "${PREFIX}"/bin/apiextensions-apiserver
-apiextensions-apiserver --help
+# apiextensions-apiserver is damabed by conda-build'd binary patching
+#test -x "${PREFIX}"/bin/apiextensions-apiserver
+#apiextensions-apiserver --help
 
