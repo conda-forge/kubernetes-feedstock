@@ -18,21 +18,80 @@ build:
   number: 0
 
 requirements:
-  build:
-    - {{ compiler('cgo') }} 1.12.17  # [not win]
-    - {{ compiler('c') }}  # [not win]
-    - make  # [not win]
-    - rsync  # [not win]
+  run:
+    - {{ pin_subpackage('kubernetes-client', exact=True) }}
+    - {{ pin_subpackage('kubernetes-node', exact=True) }}
+    - {{ pin_subpackage('kubernetes-server', exact=True) }}  # [unix]
+
 
 test:
   commands:
-    - hyperkube help  # [linux]
-    - kube-apiserver --help  # [linux]
-    - kube-controller-manager --help  # [linux]
-    - kube-proxy --help  # [not osx]
-    - kube-scheduler --help  # [linux]
-    - kubectl --help
-    - kubelet --help  # [not osx]
+    - kubectl
+
+    - kubelet --help
+    - kube-proxy --help
+    - kubeadm --help
+
+    - kube-apiserver --help  # [unix]
+    - kube-controller-manager --help  # [unix]
+    - kube-scheduler --help  # [unix]
+
+outputs:
+  - name: {{ name }}-client
+    script: client/build.sh  # [unix]
+    script: client/bld.bat  # [win]
+    test:
+      script: client/test.sh
+    requirements:
+      build:
+        - {{ compiler('cgo') }} 1.13  # [unix]
+        - {{ compiler('c') }}  # [unix]
+        - make  # [unix]
+        - rsync  # [unix]
+        - jq  # [unix]
+    about:
+      license: Apache-2.0
+      license_file: LICENSE
+      license_file: LICENSES  # [win]
+      summary: Kubernetes client binaries
+
+  - name: {{ name }}-node
+    script: node/build.sh  # [unix]
+    script: node/bld.bat  # [win]
+    test:
+      script: node/test.sh
+    requirements:
+      build:
+        - {{ compiler('cgo') }} 1.13  # [unix]
+        - {{ compiler('c') }}  # [unix]
+        - make  # [unix]
+        - rsync  # [unix]
+        - jq  # [unix]
+    about:
+      license: Apache-2.0
+      license_file: LICENSE
+      license_file: LICENSES  # [win]
+      summary: Kubernetes node binaries
+
+  {% if unix %}
+  - name: {{ name }}-server
+    script: server/build.sh
+    test:
+      script: server/test.sh
+    requirements:
+      build:
+        - {{ compiler('cgo') }} 1.13
+        - {{ compiler('c') }}
+        - make
+        - rsync
+        - jq
+      run:
+        - {{ pin_subpackage('kubernetes-node', exact=True) }}
+    about:
+        license: Apache-2.0
+        license_file: LICENSE
+        summary: Kubernetes server binaries
+  {% endif %}
 
 about:
   home: https://www.kubernetes.io
