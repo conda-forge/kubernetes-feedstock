@@ -5,4 +5,5 @@ travis:
 provider:
   win: azure
 bot:
-   automerge: true
+  automerge: true
+conda_forge_output_validation: true
