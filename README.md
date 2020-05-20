@@ -1,13 +1,13 @@
 About kubernetes
 ================
 
-Home: https://www.kubernetes.io
+Home: 
 
 Package license: Apache-2.0
 
 Feedstock license: BSD 3-Clause
 
-Summary: Production-Grade Container Orchestration
+Summary: Kubernetes client binaries
 
 
 
@@ -69,6 +69,9 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-kubernetes-green.svg)](https://anaconda.org/conda-forge/kubernetes) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/kubernetes.svg)](https://anaconda.org/conda-forge/kubernetes) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/kubernetes.svg)](https://anaconda.org/conda-forge/kubernetes) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/kubernetes.svg)](https://anaconda.org/conda-forge/kubernetes) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-kubernetes--client-green.svg)](https://anaconda.org/conda-forge/kubernetes-client) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/kubernetes-client.svg)](https://anaconda.org/conda-forge/kubernetes-client) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/kubernetes-client.svg)](https://anaconda.org/conda-forge/kubernetes-client) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/kubernetes-client.svg)](https://anaconda.org/conda-forge/kubernetes-client) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-kubernetes--node-green.svg)](https://anaconda.org/conda-forge/kubernetes-node) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/kubernetes-node.svg)](https://anaconda.org/conda-forge/kubernetes-node) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/kubernetes-node.svg)](https://anaconda.org/conda-forge/kubernetes-node) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/kubernetes-node.svg)](https://anaconda.org/conda-forge/kubernetes-node) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-kubernetes--server-green.svg)](https://anaconda.org/conda-forge/kubernetes-server) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/kubernetes-server.svg)](https://anaconda.org/conda-forge/kubernetes-server) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/kubernetes-server.svg)](https://anaconda.org/conda-forge/kubernetes-server) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/kubernetes-server.svg)](https://anaconda.org/conda-forge/kubernetes-server) |
 
 Installing kubernetes
 =====================
@@ -79,10 +82,10 @@ Installing `kubernetes` from the `conda-forge` channel can be achieved by adding
 conda config --add channels conda-forge
 ```
 
-Once the `conda-forge` channel has been enabled, `kubernetes` can be installed with:
+Once the `conda-forge` channel has been enabled, `kubernetes, kubernetes-client, kubernetes-node, kubernetes-server` can be installed with:
 
 ```
-conda install kubernetes
+conda install kubernetes kubernetes-client kubernetes-node kubernetes-server
 ```
 
 It is possible to list all of the versions of `kubernetes` available on your platform with:
