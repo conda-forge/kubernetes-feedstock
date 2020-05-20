@@ -1,5 +1,5 @@
 {% set name = "kubernetes" %}
-{% set version = "1.18.2" %}
+{% set version = "1.18.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://github.com/kubernetes/{{ name }}/archive/v{{ version }}.tar.gz  # [not win]
-  sha256: 9b561d0dbb511b1eb8471b43e389527e151f3548e54111eee0c1d8b6fefabf88  # [not win]
+  sha256: b89dcfeefc5c0286d4c8b5d681ea791bd19f45ac735ecd328e27bd5a28485a03  # [not win]
   patches:   # [not win]
     - 0001-unset-conda-go-compiler.diff  # [not win]
 
   url: https://dl.k8s.io/v{{ version }}/{{ name }}-node-windows-amd64.tar.gz  # [win]
-  sha256: d804eb9d3cbe1aa5ab345e919841a452b29224c064f67c32f46124f2f2db5285  # [win]
+  sha256: eed4add609ead768b357d44ee7eb7585a76572bb460916812d053f6eae59c9ec  # [win]
 
 build:
   number: 0
@@ -88,9 +88,9 @@ outputs:
       run:
         - {{ pin_subpackage('kubernetes-node', exact=True) }}
     about:
-        license: Apache-2.0
-        license_file: LICENSE
-        summary: Kubernetes server binaries
+      license: Apache-2.0
+      license_file: LICENSE
+      summary: Kubernetes server binaries
   {% endif %}
 
 about:
