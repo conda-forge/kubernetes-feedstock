@@ -5,11 +5,9 @@ Home:
 
 Package license: Apache-2.0
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/kubernetes-feedstock/blob/master/LICENSE.txt)
 
 Summary: Kubernetes client binaries
-
-
 
 Current build status
 ====================
