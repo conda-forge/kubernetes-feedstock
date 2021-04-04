@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/kubernetes/{{ name }}/archive/v{{ version }}.tar.gz  # [not win]
-  sha256: 36aef9c98262596ae4145603150eb8ebb0d514288d138fd45287fa5e8e272033  # [not win]
+  sha256: 0c394bba453dd190e4506d8546fe99024fb4c7acbb89b0f2ecb0dd37c3cfff4c  # [not win]
   patches:   # [not win]
     - 0001-unset-conda-go-compiler.diff  # [not win]
 
