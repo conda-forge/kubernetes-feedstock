@@ -8,6 +8,8 @@ package:
 source:
   url: https://github.com/kubernetes/{{ name }}/archive/v{{ version }}.tar.gz  # [not win]
   sha256: 0c394bba453dd190e4506d8546fe99024fb4c7acbb89b0f2ecb0dd37c3cfff4c  # [not win]
+  patches:   # [not win]
+    - 0001-unset-conda-go-compiler.diff  # [not win]
 
   url: https://dl.k8s.io/v{{ version }}/{{ name }}-node-windows-amd64.tar.gz  # [win]
   sha256: 785c0c72b4a1dcc93efb994e90ce3da50bff339bbe55894db086921daac8f072  # [win]
@@ -16,8 +18,6 @@ build:
   number: 0
 
 requirements:
-  build:
-    - {{ compiler('go') }} 1.16  # [unix]
   run:
     - {{ pin_subpackage('kubernetes-client', exact=True) }}
     - {{ pin_subpackage('kubernetes-node', exact=True) }}
@@ -44,7 +44,7 @@ outputs:
       script: client/test.sh
     requirements:
       build:
-        - {{ compiler('cgo') }} 1.13  # [unix]
+        - {{ compiler('cgo') }} 1.16  # [unix]
         - {{ compiler('c') }}  # [unix]
         - make  # [unix]
         - rsync  # [unix]
@@ -62,7 +62,7 @@ outputs:
       script: node/test.sh
     requirements:
       build:
-        - {{ compiler('cgo') }} 1.13  # [unix]
+        - {{ compiler('cgo') }} 1.16  # [unix]
         - {{ compiler('c') }}  # [unix]
         - make  # [unix]
         - rsync  # [unix]
@@ -80,7 +80,7 @@ outputs:
       script: server/test.sh
     requirements:
       build:
-        - {{ compiler('cgo') }} 1.13
+        - {{ compiler('cgo') }} 1.16
         - {{ compiler('c') }}
         - make
         - rsync
