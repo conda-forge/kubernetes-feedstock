@@ -16,6 +16,8 @@ build:
   number: 0
 
 requirements:
+  build:
+    - {{ compiler('go') }} 1.16  # [unix]
   run:
     - {{ pin_subpackage('kubernetes-client', exact=True) }}
     - {{ pin_subpackage('kubernetes-node', exact=True) }}
