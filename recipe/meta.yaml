@@ -44,7 +44,7 @@ outputs:
       script: client/test.sh
     requirements:
       build:
-        - {{ compiler('cgo') }} 1.16  # [unix]
+        - {{ compiler('cgo') }} >=1.15  # [unix]
         - {{ compiler('c') }}  # [unix]
         - make  # [unix]
         - rsync  # [unix]
@@ -52,7 +52,7 @@ outputs:
     about:
       license: Apache-2.0
       license_file: LICENSE
-      license_file: LICENSES  # [win]
+      license_file: LICENSES/  # [win]
       summary: Kubernetes client binaries
 
   - name: {{ name }}-node
@@ -62,7 +62,7 @@ outputs:
       script: node/test.sh
     requirements:
       build:
-        - {{ compiler('cgo') }} 1.16  # [unix]
+        - {{ compiler('cgo') }} >=1.15  # [unix]
         - {{ compiler('c') }}  # [unix]
         - make  # [unix]
         - rsync  # [unix]
@@ -70,7 +70,7 @@ outputs:
     about:
       license: Apache-2.0
       license_file: LICENSE
-      license_file: LICENSES  # [win]
+      license_file: LICENSES/  # [win]
       summary: Kubernetes node binaries
 
   {% if unix %}
@@ -80,7 +80,7 @@ outputs:
       script: server/test.sh
     requirements:
       build:
-        - {{ compiler('cgo') }} 1.16
+        - {{ compiler('cgo') }} >=1.15
         - {{ compiler('c') }}
         - make
         - rsync
