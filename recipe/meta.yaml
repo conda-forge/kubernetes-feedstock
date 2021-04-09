@@ -1,5 +1,5 @@
 {% set name = "kubernetes" %}
-{% set version = "1.18.8" %}
+{% set version = "1.19.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://github.com/kubernetes/{{ name }}/archive/v{{ version }}.tar.gz  # [not win]
-  sha256: 0efd7ab5f1afc77e65be0f8be137ad11aefad45e856f3f7fe8506804ae48eb12  # [not win]
+  sha256: 0c394bba453dd190e4506d8546fe99024fb4c7acbb89b0f2ecb0dd37c3cfff4c  # [not win]
   patches:   # [not win]
     - 0001-unset-conda-go-compiler.diff  # [not win]
 
   url: https://dl.k8s.io/v{{ version }}/{{ name }}-node-windows-amd64.tar.gz  # [win]
-  sha256: 2b3b1ea415320bb920dc881500e1625e9d7f433286d06019a3c166fe3c3ccb69  # [win]
+  sha256: 785c0c72b4a1dcc93efb994e90ce3da50bff339bbe55894db086921daac8f072  # [win]
 
 build:
   number: 0
@@ -44,7 +44,7 @@ outputs:
       script: client/test.sh
     requirements:
       build:
-        - {{ compiler('cgo') }} 1.13  # [unix]
+        - {{ compiler('cgo') }} >=1.15  # [unix]
         - {{ compiler('c') }}  # [unix]
         - make  # [unix]
         - rsync  # [unix]
@@ -52,7 +52,7 @@ outputs:
     about:
       license: Apache-2.0
       license_file: LICENSE
-      license_file: LICENSES  # [win]
+      license_file: LICENSES/  # [win]
       summary: Kubernetes client binaries
 
   - name: {{ name }}-node
@@ -62,7 +62,7 @@ outputs:
       script: node/test.sh
     requirements:
       build:
-        - {{ compiler('cgo') }} 1.13  # [unix]
+        - {{ compiler('cgo') }} >=1.15  # [unix]
         - {{ compiler('c') }}  # [unix]
         - make  # [unix]
         - rsync  # [unix]
@@ -70,7 +70,7 @@ outputs:
     about:
       license: Apache-2.0
       license_file: LICENSE
-      license_file: LICENSES  # [win]
+      license_file: LICENSES/  # [win]
       summary: Kubernetes node binaries
 
   {% if unix %}
@@ -80,7 +80,7 @@ outputs:
       script: server/test.sh
     requirements:
       build:
-        - {{ compiler('cgo') }} 1.13
+        - {{ compiler('cgo') }} >=1.15
         - {{ compiler('c') }}
         - make
         - rsync
@@ -98,7 +98,7 @@ about:
   license: Apache-2.0
   license_family: Apache
   license_file: LICENSE  # [not win]
-  license_file: LICENSES  # [win]
+  license_file: LICENSES/  # [win]
   summary: Production-Grade Container Orchestration
   doc_url: https://docs.kubernetes.io
   dev_url: https://github.com/kubernetes/kubernetes
@@ -106,3 +106,4 @@ about:
 extra:
   recipe-maintainers:
     - sodre
+    - dhirschfeld
