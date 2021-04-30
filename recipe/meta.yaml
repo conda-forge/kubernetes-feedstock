@@ -15,7 +15,7 @@ source:
   sha256: f295df809bbe1ccc14be0f8f24f8e229d6f388e6e7a55e0ac4cead375e988700  # [win]
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   run:
@@ -108,5 +108,6 @@ about:
 
 extra:
   recipe-maintainers:
+    - mxr-conda
     - sodre
     - dhirschfeld
