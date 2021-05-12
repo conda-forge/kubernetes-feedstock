@@ -152,5 +152,6 @@ Feedstock Maintainers
 =====================
 
 * [@dhirschfeld](https://github.com/dhirschfeld/)
+* [@mxr-conda](https://github.com/mxr-conda/)
 * [@sodre](https://github.com/sodre/)
 
