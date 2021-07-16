@@ -1,5 +1,5 @@
 {% set name = "kubernetes" %}
-{% set version = "1.21.2" %}
+{% set version = "1.21.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/kubernetes/{{ name }}/archive/v{{ version }}.tar.gz  # [not win]
-  sha256: 1173f1ea1b6d291666715f54c7d6dd9c54357c0f80aa453f243fd7b3a7498972  # [not win]
+  sha256: a66caf0e4a5996d02c52d650bfe7a24f40d8939ae4a9bbed8d3a7ecf8e39c8dc  # [not win]
   patches:   # [not win]
     - 0001-unset-conda-go-compiler.diff  # [not win]
 
