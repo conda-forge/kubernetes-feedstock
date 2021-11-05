@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://github.com/kubernetes/{{ name }}/archive/v{{ version }}.tar.gz  # [not win]
-  sha256: 5777fa003dda558a31e318001182aa5a1dff3ae8dced13f2b96cbca547bc5c2d  # [not win]
+  sha256: c1b20d29a25c7eb4a294e29196cfe78c594f61b60c49b5337715f45b3fa6efd9  # [not win]
   patches:   # [not win]
     - 0001-unset-conda-go-compiler.diff  # [not win]
 
   url: https://dl.k8s.io/v{{ version }}/{{ name }}-node-windows-amd64.tar.gz  # [win]
-  sha256: d812583b8da84272bace041404133b8f3fa9c4edab8c33d854f25ef70e991adc  # [win]
+  sha256: d3f6460f20534d54d06d28dc952c7fa39c980d185ae6a5c9831030b34323dc3e  # [win]
 
 build:
   number: 0
