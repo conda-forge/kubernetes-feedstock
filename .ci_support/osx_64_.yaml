@@ -7,7 +7,7 @@ c_compiler_version:
 cgo_compiler:
 - go-cgo
 channel_sources:
-- conda-forge,defaults
+- conda-forge
 channel_targets:
 - conda-forge main
 macos_machine:
