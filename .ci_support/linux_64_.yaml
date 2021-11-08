@@ -7,7 +7,7 @@ cdt_name:
 cgo_compiler:
 - go-cgo
 channel_sources:
-- conda-forge,defaults
+- conda-forge
 channel_targets:
 - conda-forge main
 docker_image:
