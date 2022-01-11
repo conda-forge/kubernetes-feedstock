@@ -44,7 +44,7 @@ outputs:
       script: client/test.sh
     requirements:
       build:
-        - {{ compiler('cgo') }} >=1.15  # [unix]
+        - {{ compiler('cgo') }} >=1.17  # [unix]
         - {{ compiler('c') }}  # [unix]
         - bash >=4.2  # [unix]
         - make  # [unix]
@@ -63,7 +63,7 @@ outputs:
       script: node/test.sh
     requirements:
       build:
-        - {{ compiler('cgo') }} >=1.15  # [unix]
+        - {{ compiler('cgo') }} >=1.17  # [unix]
         - {{ compiler('c') }}  # [unix]
         - bash >=4.2  # [unix]
         - make  # [unix]
@@ -82,7 +82,7 @@ outputs:
       script: server/test.sh
     requirements:
       build:
-        - {{ compiler('cgo') }} >=1.15
+        - {{ compiler('cgo') }} >=1.17
         - {{ compiler('c') }}
         - bash >=4.2
         - make
