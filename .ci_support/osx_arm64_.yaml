@@ -1,5 +1,5 @@
 MACOSX_DEPLOYMENT_TARGET:
-- '10.12'
+- '11.3'
 c_compiler:
 - clang
 c_compiler_version:
@@ -13,6 +13,6 @@ channel_targets:
 macos_machine:
 - arm64-apple-darwin20.0.0
 macos_min_version:
-- '10.12'
+- '11.0'
 target_platform:
 - osx-arm64
