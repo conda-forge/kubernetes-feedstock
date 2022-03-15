@@ -15,7 +15,7 @@ source:
   sha256: bbe86da619b2955916ae24765f12dfcdfc616623fe8e21ec01d238d404d61a96  # [win]
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   run:
@@ -44,7 +44,7 @@ outputs:
       script: client/test.sh
     requirements:
       build:
-        - {{ compiler('cgo') }} >=1.17  # [unix]
+        - {{ compiler('cgo') }}  # [unix]
         - {{ compiler('c') }}  # [unix]
         - bash >=4.2  # [unix]
         - make  # [unix]
@@ -63,7 +63,7 @@ outputs:
       script: node/test.sh
     requirements:
       build:
-        - {{ compiler('cgo') }} >=1.17  # [unix]
+        - {{ compiler('cgo') }}  # [unix]
         - {{ compiler('c') }}  # [unix]
         - bash >=4.2  # [unix]
         - make  # [unix]
@@ -82,7 +82,7 @@ outputs:
       script: server/test.sh
     requirements:
       build:
-        - {{ compiler('cgo') }} >=1.17
+        - {{ compiler('cgo') }}
         - {{ compiler('c') }}
         - bash >=4.2
         - make

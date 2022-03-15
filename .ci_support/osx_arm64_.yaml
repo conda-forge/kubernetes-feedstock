@@ -3,7 +3,7 @@ MACOSX_DEPLOYMENT_TARGET:
 c_compiler:
 - clang
 c_compiler_version:
-- '11'
+- '12'
 cgo_compiler:
 - go-cgo
 channel_sources:
@@ -11,8 +11,8 @@ channel_sources:
 channel_targets:
 - conda-forge main
 macos_machine:
-- x86_64-apple-darwin13.4.0
+- arm64-apple-darwin20.0.0
 macos_min_version:
 - '11.0'
 target_platform:
-- osx-64
+- osx-arm64
