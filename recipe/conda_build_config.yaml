@@ -4,6 +4,6 @@ macos_min_version:         # [osx]
   - 11.0                   # [osx]
 c_compiler_version:        # [unix]
   - 11                     # [osx and not arm64]
-  - 9                      # [linux]
+  - 10                     # [linux]
 cgo_compiler_version:
   - 1.18
