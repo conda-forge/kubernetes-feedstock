@@ -12,7 +12,7 @@ source:
     - 0001-unset-conda-go-compiler.diff  # [not win]
 
   url: https://dl.k8s.io/v{{ version }}/kubernetes-node-windows-amd64.tar.gz  # [win]
-  sha256: bd71b18dea6d756b20cb3609a7419cbda1c6ac982d9f70e9190d9518e00f9d42  # [win]
+  sha256: 9c0f6839b9c9085292d4aa4705807d81c4d8b2270fc8cd7ccb5c5ffac9defed8  # [win]
 
 build:
   number: 0
