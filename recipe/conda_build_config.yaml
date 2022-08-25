@@ -3,7 +3,7 @@ MACOSX_DEPLOYMENT_TARGET:  # [osx]
 macos_min_version:         # [osx]
   - 11.0                   # [osx]
 c_compiler_version:        # [unix]
-  - 12                     # [unix and not (osx and arm64)]
+  - 10                     # [unix and not (osx and arm64)]
 cgo_compiler_version:
   - 1.18
 
