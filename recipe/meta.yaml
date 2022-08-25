@@ -76,8 +76,9 @@ outputs:
       license_file: LICENSES/  # [win]
       summary: Kubernetes node binaries
 
-  {% if unix %}
   - name: {{ name }}-server
+    build:
+      skip: true  # [not unix]
     script: server/build.sh
     test:
       script: server/test.sh
@@ -95,7 +96,6 @@ outputs:
       license: Apache-2.0
       license_file: LICENSE
       summary: Kubernetes server binaries
-  {% endif %}
 
 about:
   home: https://www.kubernetes.io
