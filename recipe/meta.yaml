@@ -64,7 +64,7 @@ outputs:
       script: node/test.sh
     requirements:
       build:
-        - {{ compiler('cgo') }} >=1.19 # [unix]
+        - {{ compiler('cgo') }} >=1.19  # [unix]
         - {{ compiler('c') }}  # [unix]
         - bash >=4.2  # [unix]
         - make  # [unix]
