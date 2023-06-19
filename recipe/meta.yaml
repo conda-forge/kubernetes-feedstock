@@ -6,13 +6,13 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/kubernetes/kubernetes/archive/v{{ version }}.tar.gz  # [not win]
-  sha256: ec4253274212cd00a44be510c6ea2209d83201ce4048c1ea87b61c4e86ba7b15  # [not win]
-  patches:   # [not win]
-    - 0001-unset-conda-go-compiler.diff  # [not win]
+  - url: https://github.com/kubernetes/kubernetes/archive/v{{ version }}.tar.gz  # [not win]
+    sha256: c6fcfddd38f877ce49c49318973496f9a16672e83a29874a921242950cd1c5d2  # [not win]
+    patches:   # [not win]
+      - 0001-unset-conda-go-compiler.diff  # [not win]
 
-  url: https://dl.k8s.io/v{{ version }}/kubernetes-node-windows-amd64.tar.gz  # [win]
-  sha256: 152a0507dbed0746b8a85a35a55940dcd81e4a97a74da729650fdfbbe9aca378  # [win]
+  - url: https://dl.k8s.io/v{{ version }}/kubernetes-node-windows-amd64.tar.gz  # [win]
+    sha256: ec4253274212cd00a44be510c6ea2209d83201ce4048c1ea87b61c4e86ba7b15  # [win]
 
 build:
   skip: true  # [(osx and not arm64) or ppc64le or aarch64]
