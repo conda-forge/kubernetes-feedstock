@@ -1,13 +1,11 @@
 c_compiler:
 - gcc
 c_compiler_version:
-- '10'
+- '12'
 cdt_name:
 - cos6
 cgo_compiler:
 - go-cgo
-cgo_compiler_version:
-- '1.18'
 channel_sources:
 - conda-forge
 channel_targets:
