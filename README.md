@@ -3,6 +3,7 @@ About kubernetes-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/kubernetes-feedstock/blob/main/LICENSE.txt)
 
+
 About kubernetes
 ----------------
 
@@ -15,6 +16,7 @@ Summary: Production-Grade Container Orchestration
 Development: https://github.com/kubernetes/kubernetes
 
 Documentation: https://docs.kubernetes.io
+
 About kubernetes-client
 -----------------------
 
@@ -23,6 +25,7 @@ About kubernetes-client
 Package license: Apache-2.0
 
 Summary: Kubernetes client binaries
+
 About kubernetes-node
 ---------------------
 
@@ -31,6 +34,7 @@ About kubernetes-node
 Package license: Apache-2.0
 
 Summary: Kubernetes node binaries
+
 About kubernetes-server
 -----------------------
 
