@@ -3,6 +3,7 @@ About kubernetes-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/kubernetes-feedstock/blob/main/LICENSE.txt)
 
+
 About kubernetes
 ----------------
 
@@ -15,6 +16,7 @@ Summary: Production-Grade Container Orchestration
 Development: https://github.com/kubernetes/kubernetes
 
 Documentation: https://docs.kubernetes.io
+
 About kubernetes-client
 -----------------------
 
@@ -23,6 +25,7 @@ About kubernetes-client
 Package license: Apache-2.0
 
 Summary: Kubernetes client binaries
+
 About kubernetes-node
 ---------------------
 
@@ -31,6 +34,7 @@ About kubernetes-node
 Package license: Apache-2.0
 
 Summary: Kubernetes node binaries
+
 About kubernetes-server
 -----------------------
 
@@ -44,14 +48,7 @@ Current build status
 ====================
 
 
-<table><tr>
-    <td>Travis</td>
-    <td>
-      <a href="https://app.travis-ci.com/conda-forge/kubernetes-feedstock">
-        <img alt="linux" src="https://img.shields.io/travis/com/conda-forge/kubernetes-feedstock/main.svg?label=Linux">
-      </a>
-    </td>
-  </tr>
+<table>
     
   <tr>
     <td>Azure</td>
@@ -69,20 +66,6 @@ Current build status
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=507&branchName=main">
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/kubernetes-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_aarch64</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=507&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/kubernetes-feedstock?branchName=main&jobName=linux&configuration=linux_aarch64_" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_ppc64le</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=507&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/kubernetes-feedstock?branchName=main&jobName=linux&configuration=linux_ppc64le_" alt="variant">
                 </a>
               </td>
             </tr><tr>
