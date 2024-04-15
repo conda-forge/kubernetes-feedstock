@@ -60,6 +60,8 @@ outputs:
   - name: {{ name }}-node
     script: node/build.sh  # [unix]
     script: node/bld.bat  # [win]
+    build:
+      binary_relocation: false
     test:
       script: node/test.sh
     requirements:
