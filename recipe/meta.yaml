@@ -46,6 +46,7 @@ outputs:
       script: client/test.sh
     requirements:
       build:
+        - {{ stdlib("c") }}  # [unix]
         - {{ compiler('cgo') }}  # [unix]
         - {{ compiler('c') }}  # [unix]
         - sysroot_linux-64 2.17  # [linux64]
@@ -68,6 +69,7 @@ outputs:
       script: node/test.sh
     requirements:
       build:
+        - {{ stdlib("c") }}  # [unix]
         - {{ compiler('cgo') }}  # [unix]
         - {{ compiler('c') }}  # [unix]
         - sysroot_linux-64 2.17  # [linux64]
@@ -89,6 +91,7 @@ outputs:
       script: server/test.sh
     requirements:
       build:
+        - {{ stdlib("c") }}
         - {{ compiler('cgo') }}
         - {{ compiler('c') }}
         - sysroot_linux-64 2.17  # [linux64]
