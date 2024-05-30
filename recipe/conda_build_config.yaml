@@ -1,4 +1,5 @@
-MACOSX_DEPLOYMENT_TARGET:  # [osx]
-  - 11.3                   # [osx]
+c_stdlib_version:              # [unix]
+  - 2.17                       # [linux]
+  - 11.3                       # [osx]
 macos_min_version:         # [osx]
   - 11.0                   # [osx]
