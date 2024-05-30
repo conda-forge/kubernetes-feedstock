@@ -23,6 +23,7 @@ requirements:
     - {{ pin_subpackage('kubernetes-client', exact=True) }}
     - {{ pin_subpackage('kubernetes-node', exact=True) }}
     - {{ pin_subpackage('kubernetes-server', exact=True) }}  # [unix]
+    - __glibc >=2.17  # [linux64]
 
 
 test:
@@ -47,6 +48,7 @@ outputs:
       build:
         - {{ compiler('cgo') }}  # [unix]
         - {{ compiler('c') }}  # [unix]
+        - sysroot_linux-64 2.17  # [linux64]
         - bash >=4.2  # [unix]
         - make  # [unix]
         - rsync  # [unix]
@@ -68,6 +70,7 @@ outputs:
       build:
         - {{ compiler('cgo') }}  # [unix]
         - {{ compiler('c') }}  # [unix]
+        - sysroot_linux-64 2.17  # [linux64]
         - bash >=4.2  # [unix]
         - make  # [unix]
         - rsync  # [unix]
@@ -88,6 +91,7 @@ outputs:
       build:
         - {{ compiler('cgo') }}
         - {{ compiler('c') }}
+        - sysroot_linux-64 2.17  # [linux64]
         - bash >=4.2
         - make
         - rsync
