@@ -1,5 +1,5 @@
 {% set name = "kubernetes" %}
-{% set version = "1.33.3" %}
+{% set version = "1.33.4" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   - url: https://github.com/kubernetes/kubernetes/archive/v{{ version }}.tar.gz  # [not win]
-    sha256: d634a8ec07d157a28f4bea640605175224d21d2d48a5a749fd204d2a9ac01825  # [not win]
+    sha256: 308f9ca06aa3b7c16021006cf831681a002f25a7c8c4a1809d354d9e0c79fc72  # [not win]
     patches:   # [not win]
       - 0001-unset-conda-go-compiler.diff  # [not win]
 
   - url: https://dl.k8s.io/v{{ version }}/kubernetes-node-windows-amd64.tar.gz  # [win]
-    sha256: 9c85ec3107aaf22149e7caa4f3cc145acee9158f73ca3a556c26d3ba2bc1d557  # [win]
+    sha256: 7db900688a6422d19298f634f310d280fd8f74343ae8bd7fa1633c248b7774df  # [win]
 
 build:
   skip: true  # [(osx and not arm64) or ppc64le or aarch64]
