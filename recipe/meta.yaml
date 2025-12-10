@@ -47,7 +47,7 @@ outputs:
       build:
         - {{ stdlib("c") }}  # [unix]
         - {{ compiler('cgo') }}  # [unix and not osx]
-        - {{ compiler('cgo') }} <1.25 # [osx]
+        - {{ compiler('cgo') }} <1.25  # [osx]
         - {{ compiler('c') }}  # [unix]
         - bash >=4.2  # [unix]
         - make  # [unix]
@@ -70,7 +70,7 @@ outputs:
       build:
         - {{ stdlib("c") }}  # [unix]
         - {{ compiler('cgo') }}  # [unix and not osx]
-        - {{ compiler('cgo') }} <1.25 # [osx]
+        - {{ compiler('cgo') }} <1.25  # [osx]
         - {{ compiler('c') }}  # [unix]
         - bash >=4.2  # [unix]
         - make  # [unix]
@@ -92,7 +92,7 @@ outputs:
       build:
         - {{ stdlib("c") }}
         - {{ compiler('cgo') }}  # [unix and not osx]
-        - {{ compiler('cgo') }} <1.25 # [osx]
+        - {{ compiler('cgo') }} <1.25  # [osx]
         - {{ compiler('c') }}
         - bash >=4.2
         - make
