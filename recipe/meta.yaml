@@ -1,5 +1,5 @@
 {% set name = "kubernetes" %}
-{% set version = "1.34.0" %}
+{% set version = "1.34.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   - url: https://github.com/kubernetes/kubernetes/archive/v{{ version }}.tar.gz  # [not win]
-    sha256: 725e031f9e54091e780c3a4a0defbb909200582ef040b561c0f1f194bfbcd38a  # [not win]
+    sha256: d95f59700bf9d059b261ee2e0a34187301c734d596307e8dfe66c4c68c1a565d  # [not win]
     patches:   # [not win]
       - 0001-unset-conda-go-compiler.diff  # [not win]
 
   - url: https://dl.k8s.io/v{{ version }}/kubernetes-node-windows-amd64.tar.gz  # [win]
-    sha256: 719b63f43931b28bc24d26a27d65b1bd212cd0791a71fe02a92824f953e540bd  # [win]
+    sha256: 3a3448afd66754e95e4adfb71b75cae0608cfdbdb3e60bbdd0b01d85459d4362  # [win]
 
 build:
   skip: true  # [(osx and not arm64) or ppc64le or aarch64]
@@ -46,7 +46,8 @@ outputs:
     requirements:
       build:
         - {{ stdlib("c") }}  # [unix]
-        - {{ compiler('cgo') }}  # [unix]
+        - {{ compiler('cgo') }}  # [unix and not osx]
+        - {{ compiler('cgo') }} <1.25  # [osx]
         - {{ compiler('c') }}  # [unix]
         - bash >=4.2  # [unix]
         - make  # [unix]
@@ -68,7 +69,8 @@ outputs:
     requirements:
       build:
         - {{ stdlib("c") }}  # [unix]
-        - {{ compiler('cgo') }}  # [unix]
+        - {{ compiler('cgo') }}  # [unix and not osx]
+        - {{ compiler('cgo') }} <1.25  # [osx]
         - {{ compiler('c') }}  # [unix]
         - bash >=4.2  # [unix]
         - make  # [unix]
@@ -89,7 +91,8 @@ outputs:
     requirements:
       build:
         - {{ stdlib("c") }}
-        - {{ compiler('cgo') }}
+        - {{ compiler('cgo') }}  # [unix and not osx]
+        - {{ compiler('cgo') }} <1.25  # [osx]
         - {{ compiler('c') }}
         - bash >=4.2
         - make
