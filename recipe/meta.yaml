@@ -46,7 +46,7 @@ outputs:
     requirements:
       build:
         - {{ stdlib("c") }}  # [unix]
-        - {{ compiler('cgo') }}  # [unix and not osx]
+        - {{ compiler('cgo') }}  # [unix]
         - {{ compiler('c') }}  # [unix]
         - bash >=4.2  # [unix]
         - make  # [unix]
