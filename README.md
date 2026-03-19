@@ -17,19 +17,6 @@ Development: https://github.com/kubernetes/kubernetes
 
 Documentation: https://docs.kubernetes.io
 
-About kubernetes
-----------------
-
-Home: https://www.kubernetes.io
-
-Package license: Apache-2.0
-
-Summary: Production-Grade Container Orchestration
-
-Development: https://github.com/kubernetes/kubernetes
-
-Documentation: https://docs.kubernetes.io
-
 About kubernetes-client
 -----------------------
 
