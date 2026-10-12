@@ -7,7 +7,7 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/kubernetes-feed
 About kubernetes
 ----------------
 
-Home: https://www.kubernetes.io
+Home: https://www.kubernetes.io/
 
 Package license: Apache-2.0
 
@@ -15,12 +15,12 @@ Summary: Production-Grade Container Orchestration
 
 Development: https://github.com/kubernetes/kubernetes
 
-Documentation: https://docs.kubernetes.io
+Documentation: https://docs.kubernetes.io/
 
 About kubernetes
 ----------------
 
-Home: https://www.kubernetes.io
+Home: https://www.kubernetes.io/
 
 Package license: Apache-2.0
 
@@ -28,40 +28,59 @@ Summary: Production-Grade Container Orchestration
 
 Development: https://github.com/kubernetes/kubernetes
 
-Documentation: https://docs.kubernetes.io
+Documentation: https://docs.kubernetes.io/
 
 About kubernetes-client
 -----------------------
 
-
+Home: https://www.kubernetes.io/
 
 Package license: Apache-2.0
 
 Summary: Kubernetes client binaries
 
+Development: https://github.com/kubernetes/kubernetes
+
+Documentation: https://docs.kubernetes.io/
+
 About kubernetes-node
 ---------------------
 
-
+Home: https://www.kubernetes.io/
 
 Package license: Apache-2.0
 
 Summary: Kubernetes node binaries
 
+Development: https://github.com/kubernetes/kubernetes
+
+Documentation: https://docs.kubernetes.io/
+
 About kubernetes-server
 -----------------------
 
-
+Home: https://www.kubernetes.io/
 
 Package license: Apache-2.0
 
 Summary: Kubernetes server binaries
 
+Development: https://github.com/kubernetes/kubernetes
+
+Documentation: https://docs.kubernetes.io/
+
 Current build status
 ====================
 
 
-<table>
+<table><tr>
+    <td>GitHub Actions</td>
+    <td>
+      <a href="https://github.com/conda-forge/kubernetes-feedstock/actions/workflows/conda-build.yml">
+        <img src="https://github.com/conda-forge/kubernetes-feedstock/actions/workflows/conda-build.yml/badge.svg?event=push&branch=main">
+      </a>
+    </td>
+  </tr>
     
   <tr>
     <td>Azure</td>
@@ -75,24 +94,10 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux_64</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=507&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/kubernetes-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
               <td>osx_arm64</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=507&branchName=main">
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/kubernetes-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>win_64</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=507&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/kubernetes-feedstock?branchName=main&jobName=win&configuration=win%20win_64_" alt="variant">
                 </a>
               </td>
             </tr>
@@ -123,31 +128,73 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `kubernetes, kubernetes-client, kubernetes-node, kubernetes-server` can be installed with `conda`:
+How to use
+----------
+
+<details>
+<summary>With conda</summary>
 
 ```
 conda install kubernetes kubernetes-client kubernetes-node kubernetes-server
 ```
 
-or with `mamba`:
+</details>
+
+<details>
+<summary>With mamba</summary>
 
 ```
 mamba install kubernetes kubernetes-client kubernetes-node kubernetes-server
 ```
 
-It is possible to list all of the versions of `kubernetes` available on your platform with `conda`:
+</details>
+
+<details>
+<summary>With pixi</summary>
+
+```
+# for adding to your local project
+pixi add kubernetes kubernetes-client kubernetes-node kubernetes-server
+# for installing globally
+pixi global install kubernetes kubernetes-client kubernetes-node kubernetes-server
+```
+
+</details>
+
+Search package versions
+-----------------------
+
+It is possible to list all of the versions of `kubernetes` available on your platform:
+
+<details>
+<summary>With conda</summary>
 
 ```
 conda search kubernetes --channel conda-forge
 ```
 
-or with `mamba`:
+</details>
+
+<details>
+<summary>With mamba</summary>
 
 ```
 mamba search kubernetes --channel conda-forge
 ```
 
-Alternatively, `mamba repoquery` may provide more information:
+</details>
+
+<details>
+<summary>With pixi</summary>
+
+```
+pixi search kubernetes --channel conda-forge
+```
+
+</details>
+
+<details>
+<summary>With mamba repoquery, which may provide more information</summary>
 
 ```
 # Search all versions available on your platform:
@@ -159,6 +206,8 @@ mamba repoquery whoneeds kubernetes --channel conda-forge
 # List dependencies of `kubernetes`:
 mamba repoquery depends kubernetes --channel conda-forge
 ```
+
+</details>
 
 
 About conda-forge
@@ -228,6 +277,7 @@ Feedstock Maintainers
 =====================
 
 * [@dhirschfeld](https://github.com/dhirschfeld/)
+* [@janjagusch](https://github.com/janjagusch/)
 * [@mxr-conda](https://github.com/mxr-conda/)
 * [@sodre](https://github.com/sodre/)
 

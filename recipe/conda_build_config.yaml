@@ -1,0 +1,5 @@
+# Kubernetes >=1.36 requires Go >=1.26, and Go >=1.25 calls
+# SecTrustCopyCertificateChain from the Security framework, which is
+# only available in the macOS 12.0 SDK and later.
+c_stdlib_version:              # [osx]
+  - '12.0'                     # [osx]

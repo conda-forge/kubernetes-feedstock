@@ -1,0 +1,158 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/prefix-dev/recipe-format/main/schema.json
+
+schema_version: 1
+
+context:
+  version: "1.36.0"
+
+recipe:
+  name: kubernetes
+  version: ${{ version }}
+
+source:
+  - if: not win
+    then:
+      url: https://github.com/kubernetes/kubernetes/archive/v${{ version }}.tar.gz
+      sha256: b98652d8ebf5d60d0715cd952e5d489aa10e14ad75d7b6e2425b8de8c65aa4c5
+    else:
+      url: https://dl.k8s.io/v${{ version }}/kubernetes-node-windows-amd64.tar.gz
+      sha256: 6f58371d4664af48a4c73083b5864fb377f2148efd705ab5613e16af5d29eba8
+
+build:
+  number: 0
+  skip:
+    - osx and not arm64
+    - ppc64le
+
+outputs:
+  - package:
+      name: kubernetes-client
+    build:
+      dynamic_linking:
+        binary_relocation: false
+      script:
+        - if: win
+          then: client/bld.bat
+          else: client/build.sh
+    requirements:
+      build:
+        - if: unix
+          then:
+            - ${{ stdlib("c") }}
+            - ${{ compiler('cgo') }} >=1.26
+            - ${{ compiler('c') }}
+            - bash >=4.2
+            - make
+            - rsync
+            - jq
+    tests:
+      - script:
+          - kubectl --help
+    about:
+      license: Apache-2.0
+      license_file:
+        - if: win
+          then: LICENSES/
+          else: LICENSE
+      summary: Kubernetes client binaries
+
+  - package:
+      name: kubernetes-node
+    build:
+      dynamic_linking:
+        binary_relocation: false
+      script:
+        - if: win
+          then: node/bld.bat
+          else: node/build.sh
+    requirements:
+      build:
+        - if: unix
+          then:
+            - ${{ stdlib("c") }}
+            - ${{ compiler('cgo') }} >=1.26
+            - ${{ compiler('c') }}
+            - bash >=4.2
+            - make
+            - rsync
+            - jq
+    tests:
+      - script:
+          - kubeadm --help
+          - kubelet --help
+          - kube-proxy --help
+    about:
+      license: Apache-2.0
+      license_file:
+        - if: win
+          then: LICENSES/
+          else: LICENSE
+      summary: Kubernetes node binaries
+
+  - package:
+      name: kubernetes-server
+    build:
+      skip: not unix
+      dynamic_linking:
+        binary_relocation: false
+      script: server/build.sh
+    requirements:
+      build:
+        - ${{ stdlib("c") }}
+        - ${{ compiler('cgo') }} >=1.26
+        - ${{ compiler('c') }}
+        - bash >=4.2
+        - make
+        - rsync
+        - jq
+      run:
+        - ${{ pin_subpackage('kubernetes-node', exact=true) }}
+    tests:
+      - script:
+          - kube-apiserver --help
+          - kube-controller-manager --help
+          - kube-scheduler --help
+          - test -x "${PREFIX}/bin/mounter"
+    about:
+      license: Apache-2.0
+      license_file: LICENSE
+      summary: Kubernetes server binaries
+
+  - package:
+      name: kubernetes
+    requirements:
+      run:
+        - ${{ pin_subpackage('kubernetes-client', exact=true) }}
+        - ${{ pin_subpackage('kubernetes-node', exact=true) }}
+        - if: unix
+          then: ${{ pin_subpackage('kubernetes-server', exact=true) }}
+    tests:
+      - script:
+          - kubectl
+          - kubelet --help
+          - kube-proxy --help
+          - kubeadm --help
+          - if: unix
+            then: kube-apiserver --help
+          - if: unix
+            then: kube-controller-manager --help
+          - if: unix
+            then: kube-scheduler --help
+
+about:
+  homepage: https://www.kubernetes.io
+  license: Apache-2.0
+  license_file:
+    - if: win
+      then: LICENSES/
+      else: LICENSE
+  summary: Production-Grade Container Orchestration
+  documentation: https://docs.kubernetes.io
+  repository: https://github.com/kubernetes/kubernetes
+
+extra:
+  recipe-maintainers:
+    - mxr-conda
+    - sodre
+    - dhirschfeld
+    - janjagusch
