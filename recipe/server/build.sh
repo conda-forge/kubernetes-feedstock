@@ -6,6 +6,13 @@ if [ "${BASH_VERSINFO[0]:-0}" -lt 4 ] && [ -x "${BUILD_PREFIX}/bin/bash" ]; then
   exec "${BUILD_PREFIX}/bin/bash" "$0" "$@"
 fi
 
+# The conda go-cgo compiler activation exports CONDA_GO_COMPILER=1, which makes
+# the go tool default GOBIN to $PREFIX/bin and GOPATH to $SRC_DIR/gopath. The
+# Kubernetes build sets its own GOPATH and expects binaries under _output/, so
+# clear it. This replaces the former hack/lib/golang.sh source patch, whose
+# context no longer exists upstream and which rattler-build only applied by fuzz.
+unset CONDA_GO_COMPILER
+
 set -euf
 
 HOST_GOOS="$(go env GOHOSTOS)"

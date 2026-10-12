@@ -3,11 +3,10 @@
 schema_version: 1
 
 context:
-  name: kubernetes
   version: "1.36.0"
 
 recipe:
-  name: ${{ name }}
+  name: kubernetes
   version: ${{ version }}
 
 source:
@@ -15,8 +14,6 @@ source:
     then:
       url: https://github.com/kubernetes/kubernetes/archive/v${{ version }}.tar.gz
       sha256: b98652d8ebf5d60d0715cd952e5d489aa10e14ad75d7b6e2425b8de8c65aa4c5
-      patches:
-        - 0001-unset-conda-go-compiler.diff
     else:
       url: https://dl.k8s.io/v${{ version }}/kubernetes-node-windows-amd64.tar.gz
       sha256: 6f58371d4664af48a4c73083b5864fb377f2148efd705ab5613e16af5d29eba8
@@ -29,8 +26,10 @@ build:
 
 outputs:
   - package:
-      name: ${{ name }}-client
+      name: kubernetes-client
     build:
+      dynamic_linking:
+        binary_relocation: false
       script:
         - if: win
           then: client/bld.bat
@@ -40,7 +39,7 @@ outputs:
         - if: unix
           then:
             - ${{ stdlib("c") }}
-            - ${{ compiler('cgo') }}
+            - ${{ compiler('cgo') }} >=1.26
             - ${{ compiler('c') }}
             - bash >=4.2
             - make
@@ -58,7 +57,7 @@ outputs:
       summary: Kubernetes client binaries
 
   - package:
-      name: ${{ name }}-node
+      name: kubernetes-node
     build:
       dynamic_linking:
         binary_relocation: false
@@ -71,7 +70,7 @@ outputs:
         - if: unix
           then:
             - ${{ stdlib("c") }}
-            - ${{ compiler('cgo') }}
+            - ${{ compiler('cgo') }} >=1.26
             - ${{ compiler('c') }}
             - bash >=4.2
             - make
@@ -91,14 +90,16 @@ outputs:
       summary: Kubernetes node binaries
 
   - package:
-      name: ${{ name }}-server
+      name: kubernetes-server
     build:
       skip: not unix
+      dynamic_linking:
+        binary_relocation: false
       script: server/build.sh
     requirements:
       build:
         - ${{ stdlib("c") }}
-        - ${{ compiler('cgo') }}
+        - ${{ compiler('cgo') }} >=1.26
         - ${{ compiler('c') }}
         - bash >=4.2
         - make
@@ -118,7 +119,7 @@ outputs:
       summary: Kubernetes server binaries
 
   - package:
-      name: ${{ name }}
+      name: kubernetes
     requirements:
       run:
         - ${{ pin_subpackage('kubernetes-client', exact=true) }}
