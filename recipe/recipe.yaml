@@ -3,7 +3,7 @@
 schema_version: 1
 
 context:
-  version: "1.36.0"
+  version: "1.37.1"
 
 recipe:
   name: kubernetes
@@ -13,10 +13,10 @@ source:
   - if: not win
     then:
       url: https://github.com/kubernetes/kubernetes/archive/v${{ version }}.tar.gz
-      sha256: b98652d8ebf5d60d0715cd952e5d489aa10e14ad75d7b6e2425b8de8c65aa4c5
+      sha256: 89295ac375eb0fdfe68a0696d81be615771d6b27c7ad9bb675dc6ffd0d2ce5f3
     else:
       url: https://dl.k8s.io/v${{ version }}/kubernetes-node-windows-amd64.tar.gz
-      sha256: 6f58371d4664af48a4c73083b5864fb377f2148efd705ab5613e16af5d29eba8
+      sha256: a7a3cb45c7f7de3d9a60c3368072040b13ba9320c46b11bb8844088b1096ba0d
 
 build:
   number: 0
@@ -133,12 +133,10 @@ outputs:
           - kube-proxy --help
           - kubeadm --help
           - if: unix
-            then: kube-apiserver --help
-          - if: unix
-            then: kube-controller-manager --help
-          - if: unix
-            then: kube-scheduler --help
-
+            then:
+              - kube-apiserver --help
+              - kube-controller-manager --help
+              - kube-scheduler --help
 about:
   homepage: https://www.kubernetes.io
   license: Apache-2.0
